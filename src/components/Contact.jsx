@@ -6,7 +6,7 @@ import SocialLinks from "./SocialLinks";
 const Contact = () => {
   return (
     <section className="min-h-screen bg-[#111111] text-black py-10 px-6 sm:px-10 md:px-16 lg:px-28">
-      <div className="bg-white w-full max-w-7xl mx-auto p-6 sm:p-10 rounded-xl">
+      <div className="bg-white w-full max-w-7xl mx-auto p-6 sm:p-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 mt-9">
           {/* Left Text */}
           <div className="w-full lg:w-[40%] space-y-8 text-center lg:text-left">
