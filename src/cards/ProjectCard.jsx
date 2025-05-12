@@ -4,7 +4,9 @@ import { Github } from "lucide-react";
 const ProjectCard = ({ project, index }) => {
   return (
     <div
-      className={`sticky top-8 min-h-screen flex items-center justify-center text-[#C3C3C3] z-[${index + 10}] px-4 sm:px-8`}
+      className={`sticky top-8 min-h-screen flex items-center justify-center text-[#C3C3C3] z-[${
+        index + 10
+      }] px-4 sm:px-8`}
     >
       <div
         className={`w-full max-w-5xl min-h-[600px] sm:h-[75vh] mt-12 p-6 sm:p-10 rounded-2xl shadow-2xl backdrop-blur-sm flex flex-col justify-between ${project.bgColor}`}
