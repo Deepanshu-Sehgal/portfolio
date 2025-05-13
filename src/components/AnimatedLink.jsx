@@ -1,11 +1,15 @@
-// src/components/AnimatedLink.jsx
 import React from "react";
 
 const AnimatedLink = ({ defaultText, href = "#" }) => {
+  const isExternal = href.startsWith("http");
+
   return (
     <a
       href={href}
       className="group relative flex flex-col items-start justify-start h-7 overflow-hidden text-xl font-semibold"
+      {...(isExternal
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
     >
       {/* Top Text (fades out & moves up) */}
       <span className="transition-all duration-300 ease-in group-hover:-translate-y-7 group-hover:opacity-0">

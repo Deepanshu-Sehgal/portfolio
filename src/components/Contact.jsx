@@ -3,10 +3,17 @@ import { ArrowUpRight } from "lucide-react";
 import AnimatedLink from "./AnimatedLink";
 import SocialLinks from "./SocialLinks";
 
+
+const links = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/deepanshu-sehgal01/" },
+    { label: "Github", href: "https://github.com/Deepanshu-Sehgal" },
+    { label: "Leetcode", href: "https://leetcode.com/u/DeepanshuSehgal112/" },
+  ];
+
 const Contact = () => {
   return (
-    <section className="min-h-screen bg-[#111111] text-black py-10 px-6 sm:px-10 md:px-16 lg:px-28">
-      <div className="bg-white w-full max-w-7xl mx-auto p-6 sm:p-10">
+    <section id="contacts" className="h-full bg-[#111111] text-black py-10 px-6 sm:px-10 md:px-16 lg:px-28">
+      <div className="bg-white  mx-auto p-6 sm:p-10 lg:h-full">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 mt-9">
           {/* Left Text */}
           <div className="w-full lg:w-[40%] space-y-8 text-center lg:text-left">
@@ -29,18 +36,16 @@ const Contact = () => {
             {/* Navigation */}
             <div className="space-y-3">
               <AnimatedLink defaultText="Home" href="#home" />
-              <AnimatedLink defaultText="Work" href="#work" />
-              <AnimatedLink defaultText="About" href="#about" />
-              <AnimatedLink defaultText="Contact" href="#contact" />
+              <AnimatedLink defaultText="Projects" href="#projects" />
             </div>
 
             {/* Socials */}
-            <SocialLinks />
+            <SocialLinks links={links}/>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="text-gray-500 text-sm sm:text-base mt-20 text-center">
+        <p className="text-gray-500 text-sm sm:text-base mt-20 text-left">
           Developed by Deepanshu Sehgal & Designed by Vimal Sehgal
         </p>
       </div>

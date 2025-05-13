@@ -46,7 +46,7 @@ const os = ["Windows", "Linux", "MacOS", "Ubuntu"];
 
 const Skills = () => {
   return (
-    <section className="flex flex-col lg:flex-row justify-center items-start gap-10 text-white py-20 px-6 sm:px-10">
+    <section id="skills" data-aos="zoom-in" className="flex flex-col lg:flex-row justify-center items-center gap-10 text-white py-20 px-6 sm:px-10">
       {/* Left */}
       <div className="w-full lg:w-[40%]">
         <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 text-center lg:text-left">

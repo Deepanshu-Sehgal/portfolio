@@ -1,11 +1,7 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
-const SocialLinks = () => {
-  const links = [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/deepanshu-sehgal01/" },
-    { label: "Github", href: "https://github.com/Deepanshu-Sehgal" },
-    { label: "Leetcode", href: "https://leetcode.com/u/DeepanshuSehgal112/" },
-  ];
+const SocialLinks = ({links}) => {
+  
 
   return (
     <div className="space-y-4 text-xl">

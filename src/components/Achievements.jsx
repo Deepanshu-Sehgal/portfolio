@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 
 const Achievements = ({ data }) => {
   return (
-    <section className="text-white py-20 px-6 sm:px-8 md:px-16">
+    <section id="achivements" data-aos="zoom-in" className="text-white py-20 px-6 sm:px-8 md:px-16">
       <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center sm:text-left">
         Achievements
       </h2>
@@ -20,7 +20,7 @@ const Achievements = ({ data }) => {
               <h3 className="text-base sm:text-lg font-semibold">
                 {item.title}
               </h3>
-              <p className="text-gray-400 text-sm sm:text-base">
+              <p className="text-white text-sm sm:text-base">
                 {item.subtitle}
               </p>
             </div>

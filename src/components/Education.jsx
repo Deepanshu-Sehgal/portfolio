@@ -18,8 +18,8 @@ const Education = ({ data }) => {
               <div className="bg-white text-black p-3 rounded-full">
                 <GraduationCap size={22} />
               </div>
-              {index < data.length - 1 && (
-                <div className="h-12 sm:h-full w-[2px] bg-white mt-2" />
+              {index < data.length && (
+                <div className="h-8 sm:h-5 md:h-8 w-[2px] lg:h-10 bg-white mt-2" />
               )}
             </div>
 
@@ -29,7 +29,7 @@ const Education = ({ data }) => {
               <p className="text-gray-400 text-sm sm:text-base">
                 {item.institution}
               </p>
-              <span className="mt-2 inline-block px-4 py-1 bg-gray-800 rounded-full text-xs sm:text-sm">
+              <span className="mt-2 inline-block px-4 py-1 bg-white text-black rounded-full text-xs sm:text-sm">
                 {item.duration}
               </span>
             </div>
