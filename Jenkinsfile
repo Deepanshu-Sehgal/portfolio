@@ -2,17 +2,19 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Deepanshu-Sehgal/portfolio.git'
+                git branch: 'main',
+                    url: 'https://github.com/Deepanshu-Sehgal/portfolio.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("portfolio-react:latest")
-                }
+                sh '''
+                docker build -t portfolio-react:latest .
+                '''
             }
         }
 
