@@ -1,8 +1,11 @@
+"use client";
+
 import { motion } from "framer-motion";
-import Navbar from "../components/NavBar";
 import Hero from "../components/Hero";
 import Education from "../components/Education";
 import Achievements from "../components/Achievements";
+import FeaturedPosts from "../components/FeaturedPosts";
+import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
@@ -12,83 +15,91 @@ import { useEffect } from "react";
 
 const educationData = [
   {
-    degree: "Master’s Of Computer Application",
+    degree: "Master's Of Computer Application",
     institution: "Amity University, Mohali, Punjab",
     duration: "2023–2025",
   },
   {
-    degree: "Bachelor’s of Computer Application",
+    degree: "Bachelor's of Computer Application",
     institution: "Punjab Technical University, Jalandher",
     duration: "2020–2023",
   },
 ];
 
+const experienceData = [
+  {
+    company: "Embtel Solutions Ltd",
+    role: "Full Stack Developer",
+    location: "Zirakpur, Punjab",
+    duration: "Aug 2025 – Mar 2026",
+    points: [
+      "Developed 8+ full-stack applications with RESTful APIs leveraging Node.js, deploying on AWS with CI/CD pipelines, reducing deployment time by 60% and enabling 5+ monthly releases",
+      "Streamlined release workflows leveraging Jenkins and Docker, achieving 99.8% uptime, zero-downtime deployments, and 45% reduction in production incidents through automated testing and rollback mechanisms",
+    ],
+  },
+  {
+    company: "Deftsoft Informatics Pvt. Ltd",
+    role: "Junior Software Engineer",
+    location: "Mohali, Punjab",
+    duration: "June 2025 – Sept 2025",
+    points: [
+      "Developed 15+ high-performance RESTful APIs leveraging Spring Boot, Node.js, and Express.js, handling 10K+ requests/minute, and collaborated with senior engineers to optimize backend architecture, improving response time by 40%",
+      "Enhanced system scalability and reliability through architectural improvements, reducing downtime by 25% and achieving 99.5% uptime across production environments",
+    ],
+  },
+  {
+    company: "Insyrge",
+    role: "MERN Stack Developer Intern",
+    location: "Chandigarh, India",
+    duration: "Sept 2024 – Feb 2025",
+    points: [
+      "Engineered CRM and HR dashboards leveraging MERN stack with role-based access control (RBAC) for 5+ user roles, implementing JWT-based authentication and secure RESTful APIs for data protection and controlled access",
+      "Improved system scalability by 40% and performance by 30% through modular backend architecture, MongoDB query optimization, and reduced API response times from 800ms to 560ms",
+    ],
+  },
+];
+
 const achievementData = [
   {
-    title: "Web Development Bootcamp (MERN Stack)",
-    subtitle: "CodeHelp (2024)",
-  },
-  {
-    title: "Core java + Android Programming",
-    subtitle: "CBitss Chandigarh (2020)",
-  },
-  {
-    title: "Participated in Sparkathon 2024 CONVERGE @ Walmart",
-    subtitle: "Sept 2024",
+    title: "DevOps | AWS | Docker | Kubernetes (K8s) Certifications",
+    subtitle: "2026",
+    link: "https://drive.google.com/drive/folders/102lWXZaTnScb9QsC3ykD1kshiXvyGzCz?usp=sharing", // Add your certification link here
   },
   {
     title:
-      "Finalist of CyberThon 2023 Hackathon organized by Chandigarh Police & Infosys",
+      "Authored a book chapter on AI-Driven Personalized Shopping Assistance, published at ICISRI 2024",
+    subtitle: "2024",
+    link: "https://www.linkedin.com/posts/deepanshu-sehgal01_ai-machinelearning-iot-activity-7274402555860819968-uDJY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADLTVGUBMUAQfMSRQndJXVE18K-_0BF2PKY", // Add your publication link here
+  },
+  {
+    title:
+      "Finalist at CyberThon 2023 (Top 13) – NLP-based police complaint automation (FastAPI + Twilio)",
     subtitle: "November 2023",
-  },
-];
-const projectData = [
-  {
-    title: "AI-Powered Class Attendance System",
-    description:
-      "Face detection-based attendance system using YOLOv11, React, and Flask. Deployed on AWS.",
-    techStack: ["YOLOv11", "React", "Flask", "AWS", "PostgreSQL"],
-    link: "https://github.com/your-repo/class-attendance-system",
-    color: "blue", // background color
-  },
-  {
-    title: "Stock Market Prediction",
-    description:
-      "Predicted trends using hybrid CNN+LSTM and BERT for technical + sentiment analysis.",
-    techStack: ["CNN", "LSTM", "BERT", "Python"],
-    link: "https://github.com/your-repo/stock-market-prediction",
-    color: "red",
-  },
-  {
-    title: "AI Image Generator SaaS",
-    description:
-      "Full-stack SaaS platform to generate AI images using OpenAI API. Includes Razorpay integration.",
-    techStack: ["MERN", "OpenAI", "Razorpay", "AWS S3"],
-    link: "https://github.com/your-repo/image-gen-saas",
-    color: "yellow",
+    link: "", // Add your hackathon link here
   },
 ];
 
 const Home = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration in ms
-      once: true, // only animate once on scroll
-      offset: 100, // how far from the element before triggering
+      duration: 1000,
+      once: true,
+      offset: 100,
     });
   }, []);
   return (
     <motion.div
-      className="font-sans bg-[#111111] min-h-screen text-white relative select-none"
+      className="font-sans bg-transparent min-h-screen text-white relative select-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <Navbar />
       <Hero />
+      <Experience data={experienceData} />
       <Education data={educationData} />
       <Achievements data={achievementData} />
-      <Projects data={projectData} />
+      <FeaturedPosts />
+      <Projects />
       <Skills />
     </motion.div>
   );

@@ -1,71 +1,74 @@
 import React from "react";
 import SkillsCard from "../cards/SkillsCard";
 
-const Frameworks = [
-  "Spring Boot",
-  "ReactJS",
-  "FastAPI",
-  "NodeJS",
-  "Flask",
-  "Django",
-  "ExpressJS",
-];
+const Languages = ["Python", "TypeScript", "Java", "JavaScript"];
 
-const Cloud = [
-  "AWS RDS",
-  "AWS EC2",
-  "AWS S3",
-  "AWS Lambda",
-  "Docker",
-  "Kubernetes",
-];
+const Frameworks = ["SpringBoot", "MERN Stack", "Redux Toolkit", "FastAPI"];
 
 const Databases = [
-  "MySQL",
   "PostgreSQL",
+  "SQL",
   "MongoDB",
-  "SQLite",
   "Redis",
-  "OracleDB",
+  "Kafka",
+  "Vector DBs",
 ];
 
-const Languages = ["Java", "Python", "JavaScript", "HTML", "CSS", "PHP", "C++"];
+const Cloud = ["AWS", "Azure", "GCP"];
 
-const webDev = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "ReactJS",
-  "Tailwind CSS",
-  "NodeJS",
-  "Flask",
-  "Django",
+const DevOps = [
+  "Docker",
+  "Kubernetes",
+  "Jenkins",
+  "GitHub Actions",
+  "Argo CD",
 ];
 
-const os = ["Windows", "Linux", "MacOS", "Ubuntu"];
+const Infrastructure = [
+  "Terraform",
+  "Ansible",
+  "Prometheus",
+  "Grafana",
+  "Nginx",
+];
+
+const Concepts = [
+  "System Design",
+  "Linux",
+  "Python Scripting",
+  "Claude Code",
+  "NLP",
+  "LangChain",
+];
 
 const Skills = () => {
   return (
-    <section id="skills" data-aos="zoom-in" className="flex flex-col lg:flex-row justify-center items-center gap-10 text-white py-20 px-6 sm:px-10">
-      {/* Left */}
-      <div className="w-full lg:w-[40%]">
-        <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 text-center lg:text-left">
-          Skills
+    <section
+      id="skills"
+      data-aos="fade-up"
+      className="w-full max-w-7xl mx-auto py-24 px-6 sm:px-10 z-10 relative"
+    >
+      <div className="text-center mb-16">
+        <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-500 tracking-tight">
+          Technical Arsenal
         </h2>
-        <p className="text-sm sm:text-base text-center lg:text-left leading-relaxed max-w-md mx-auto lg:mx-0">
-          "Versatile developer skilled in backend, cloud, web solutions, &
-          database management across Linux and Windows."
+        <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed  bg-[#1a1b2e]/80 p-4 rounded-xl border border-white/10">
+          Full Stack Developer with strong DevOps capabilities — building scalable MERN and Java applications, automating CI/CD pipelines, and managing modern cloud infrastructure.
         </p>
       </div>
 
-      {/* Right */}
-      <div className="w-full lg:w-[60%] space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <SkillsCard label="Languages" icons={Languages} />
-        <SkillsCard label="Frameworks" icons={Frameworks} />
-        <SkillsCard label="Cloud Technology" icons={Cloud} />
-        <SkillsCard label="Databases" icons={Databases} />
-        <SkillsCard label="Web Development (Basic)" icons={webDev} />
-        <SkillsCard label="Operating Systems" icons={os} />
+        <SkillsCard label="Frameworks & Libs" icons={Frameworks} />
+        <SkillsCard label="Databases & Messaging" icons={Databases} />
+        <SkillsCard label="Cloud Platforms" icons={Cloud} />
+        <SkillsCard label="DevOps & CI/CD" icons={DevOps} />
+        <SkillsCard label="Infrastructure" icons={Infrastructure} />
+        <div className="md:col-span-2 lg:col-span-3 flex justify-center mt-4">
+          <div className="w-full max-w-3xl">
+            <SkillsCard label="Concepts & Tools" icons={Concepts} />
+          </div>
+        </div>
       </div>
     </section>
   );

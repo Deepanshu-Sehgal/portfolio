@@ -1,8 +1,81 @@
 const projects = [
+  // ── New Resume Projects ──────────────────────────────────────────────
+  {
+    title: "DevSecOps CI/CD Pipeline for Food Delivery Platform",
+    tech: "Jenkins, Docker, Kubernetes, AWS (EKS, ECR), Prometheus, Grafana, Argo CD",
+    date: " Feb 2026",
+    desc1:
+      "⚙️ Engineered fully automated CI/CD pipeline leveraging Jenkins, Docker, and Kubernetes (EKS) for a food delivery platform, enabling zero-manual deployments and faster release cycles with automated rollback.",
+    desc2:
+      "📊 Delivered scalable microservices architecture with auto-scaling capabilities, real-time monitoring dashboards using Prometheus and Grafana, and high availability during peak traffic loads.",
+    desc3:
+      "🚀 Implemented Argo CD for GitOps-based continuous delivery, ensuring declarative infrastructure management and seamless deployment orchestration across environments.",
+    bgColor: "bg-[#1a1a2e]",
+    github: "https://github.com/Deepanshu-Sehgal/DevOps-Project-Zomato",
+    live: "",
+  },
+  {
+    title: "AI Return Assistant (GenAI + FastAPI)",
+    tech: "Python, FastAPI, OpenAI API, LangChain, REST APIs, Prompt Engineering",
+    date: "Jan 2026",
+    desc1:
+      "🤖 Built an AI-powered return decision system using OpenAI APIs to automate eCommerce return workflows, reducing manual intervention in return approvals.",
+    desc2:
+      "🔗 Leveraged LangChain for prompt engineering and chaining, enabling intelligent multi-step reasoning for complex return scenarios.",
+    desc3:
+      "⚡ Exposed scalable REST APIs via FastAPI with structured input validation, enabling seamless integration with existing eCommerce platforms.",
+    bgColor: "bg-[#0f3460]",
+    github: "https://github.com/Deepanshu-Sehgal/Ai-return-Assistant",
+    live: "",
+  },
+  {
+    title: "AI-Powered Pre-Leave Approval System",
+    tech: "Deep Learning, Python, Twilio, FastAPI",
+    date: "Dec 2025",
+    desc1:
+      "🧠 Built an AI-based leave approval system using Deep Learning and Python, automating policy checks and pre-approval scoring for HR departments.",
+    desc2:
+      "📬 Integrated Twilio for real-time SMS/voice notifications, alerting employees and managers instantly on approval decisions.",
+    desc3:
+      "📈 Reduced manual HR tasks and improved efficiency by automating the entire leave request evaluation pipeline.",
+    bgColor: "bg-[#6B4226]",
+    github: "https://github.com/Deepanshu-Sehgal/Leave-Approval-Project",
+    live: "",
+  },
+  {
+    title: "StudyNotion: Interactive Learning Management System",
+    tech: "MongoDB, Express.js, React.js, Node.js, Cloudinary, Razorpay, JWT",
+    date: "Nov 2024",
+    desc1:
+      "📚 Built a full-stack LMS using MERN stack with JWT-based authentication and role-based access control, enabling secure and structured access for students and instructors.",
+    desc2:
+      "💳 Integrated Razorpay APIs for end-to-end payment processing and Cloudinary for scalable media storage and delivery, resulting in a seamless course purchase and content streaming experience.",
+    desc3:
+      "🌍 Empowered instructors to host content and reach global audiences, with support for role-based access and secure JWT authentication.",
+    bgColor: "bg-[#111B26]",
+    github: "https://github.com/Deepanshu-Sehgal/StudyNotion-MERN-Mega_Project",
+    live: "https://study-notion-ashy-zeta.vercel.app/",
+  },
+  {
+    title: "UberApp Clone: Cab Riding Backend System",
+    tech: "Java, Spring Boot, Swagger UI, RESTful APIs, Jenkins, Docker, Microservices, AWS",
+    date: "April 2024",
+    desc1:
+      "🚖 Architected a microservices-based backend using Java and Spring Boot to handle real-time cab booking, driver allocation, and ride management across independently deployable services.",
+    desc2:
+      "📄 Designed and documented RESTful APIs with versioning and Swagger UI, then automated deployment to AWS using Jenkins and Docker CI/CD pipelines, eliminating manual releases.",
+    desc3:
+      "🔁 Built secure RESTful APIs for user onboarding, ride booking, fare calculation, and location-based ride allocation.",
+    bgColor: "bg-[#147536]",
+    github: "https://github.com/Deepanshu-Sehgal/UberApp-SpringBoot",
+    live: "",
+  },
+
+  // ── Existing Projects ────────────────────────────────────────────────
   {
     title: "Face Mask Detection in Hospital Monitoring System",
     tech: "YOLOv8, FastAPI, Docker, Twilio, ResNet50",
-    date: "Present",
+    date: "Jan 2025",
     desc1:
       "⚙️ Engineered a real-time face mask compliance monitoring system using YOLOv8 and ResNet50, achieving high-accuracy detection in dynamic hospital environments.",
     desc2:
@@ -10,8 +83,9 @@ const projects = [
     desc3:
       "📢 Enabled Twilio-based real-time alerts (SMS/voice) for non-compliance, supporting hospital authorities with automated compliance reporting and enhanced safety protocols.",
     bgColor: "bg-red-950",
-    github:"https://github.com/Deepanshu-Sehgal/AI-Powered-FaceMask-Monitoring-System-for-Hospitals-and-Clinic",
-    live:""
+    github:
+      "https://github.com/Deepanshu-Sehgal/AI-Powered-FaceMask-Monitoring-System-for-Hospitals-and-Clinic",
+    live: "",
   },
   {
     title: "AI-Based Attendance Monitoring System",
@@ -24,50 +98,9 @@ const projects = [
     desc3:
       "☁️ Integrated with React.js (frontend), FastAPI (backend), and deployed using Docker and AWS, supporting live attendance capture and reporting.",
     bgColor: "bg-[#1D3557]",
-    github:"https://github.com/Deepanshu-Sehgal/AI-Powered-Class-Attendance-System",
-    live:""
-  },
-  {
-    title: "Sandwich Leave Policy AI-Based Approval System",
-    tech: "GPT-4, FastAPI, SMOTE, LangChain, Docker, Twilio",
-    date: "March 2025",
-    desc1:
-      "🧠 Built an AI-driven automated leave approval system powered by GPT-4 and LangChain, capable of analyzing complex leave scenarios like Sandwich Policy in under 5 seconds.",
-    desc2:
-      "📊 Applied SMOTE to ensure fairness in classification of HR decisions across imbalanced datasets.",
-    desc3:
-      "📬 Integrated with Twilio for real-time notifications, and deployed using FastAPI and Docker, streamlining HR workflows and reducing approval delays by 80%.",
-    bgColor: "bg-[#6B4226]",
-    github:"https://github.com/Deepanshu-Sehgal/Leave-Approval-Project",
-    live:""
-  },
-  {
-    title: "Dynamic E-Learning Platform",
-    tech: "MERN Stack, Cloudinary, Razorpay",
-    date: "May 2024",
-    desc1:
-      "📚 Designed and built a full-stack interactive learning platform using MERN stack, delivering a seamless experience for both learners and instructors.",
-    desc2:
-      "💳 Integrated Cloudinary for media hosting and Razorpay for secure payments, enabling smooth course purchases and instructor monetization.",
-    desc3:
-      "🌍 Empowered instructors to host content and reach global audiences, with support for role-based access and secure JWT authentication.",
-    bgColor: "bg-[#111B26]",
-    github:"https://github.com/Deepanshu-Sehgal/StudyNotion-MERN-Mega_Project",
-    live:"https://study-notion-ashy-zeta.vercel.app/"
-  },
-  {
-    title: "UBERAPP Clone – Cab Booking Backend",
-    tech: "Java Spring Boot, Swagger UI, RESTful APIs",
-    date: "October 2024",
-    desc1:
-      "🚖 Created a scalable backend for a cab booking system using Spring Boot, replicating core features of platforms like Uber and Ola.",
-    desc2:
-      "🔁 Built secure RESTful APIs for user onboarding, ride booking, fare calculation, and location-based ride allocation.",
-    desc3:
-      "📄 Integrated Swagger UI for comprehensive API documentation and testing, improving dev onboarding and third-party integration.",
-    bgColor: "bg-[#147536]",
-    github:"https://github.com/Deepanshu-Sehgal/UberApp-SpringBoot",
-    live:""
+    github:
+      "https://github.com/Deepanshu-Sehgal/AI-Powered-Class-Attendance-System",
+    live: "",
   },
   {
     title: "Police Unified Language & Semantic Evaluation",
@@ -80,8 +113,9 @@ const projects = [
     desc3:
       "📊 Embedded NER, sentiment analysis, and data visualization dashboards for actionable feedback and analytics-driven policing.",
     bgColor: "bg-[#45376E]",
-    github:"https://github.com/Deepanshu-Sehgal/Police-Unified-Language-Semantic-Evaluation",
-    live:""
+    github:
+      "https://github.com/Deepanshu-Sehgal/Police-Unified-Language-Semantic-Evaluation",
+    live: "",
   },
 ];
 
