@@ -11,7 +11,7 @@ import AnimatedLink from "./AnimatedLink";
 
 const AbstractShape = () => {
   const meshRef = useRef();
-  
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
@@ -22,12 +22,12 @@ const AbstractShape = () => {
   return (
     <Float speed={1.5} rotationIntensity={1} floatIntensity={1}>
       <TorusKnot ref={meshRef} args={[1.6, 0.15, 64, 16]} scale={1.1}>
-        <MeshDistortMaterial 
-          color="#818cf8" 
-          attach="material" 
-          distort={0.3} 
-          speed={1.5} 
-          roughness={0.1} 
+        <MeshDistortMaterial
+          color="#818cf8"
+          attach="material"
+          distort={0.3}
+          speed={1.5}
+          roughness={0.1}
           metalness={0.9}
           transparent={true}
           opacity={0.25}
@@ -44,7 +44,6 @@ const Hero = () => {
       className="min-h-screen w-full flex items-center justify-center relative overflow-hidden pt-20"
     >
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto h-full py-10 px-6 sm:px-10 text-gray-300 z-10 gap-12 lg:gap-8">
-        
         {/* Left Column - Text and Actions */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -60,12 +59,22 @@ const Hero = () => {
               Sehgal
             </h1>
           </div>
-          
+
           <div className="flex flex-col items-center lg:items-start gap-6 w-full max-w-lg">
             {/* Description */}
             <p className="text-sm sm:text-base lg:text-lg tracking-wide  bg-[#1a1b2e]/80 p-5 lg:p-6 rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(79,70,229,0.15)] text-gray-300 leading-relaxed w-full">
-              I am a <span className="text-indigo-400 font-bold text-lg">Full Stack Developer</span> with over 1 year of experience engineering highly scalable <span className="text-pink-400 font-bold">MERN</span> and <span className="text-pink-400 font-bold">Java</span> applications. 
-              Passionate about creating seamless user experiences and robust architectures, I combine deep frontend knowledge with strong <span className="text-purple-400 font-bold">DevOps</span> capabilities, specializing in CI/CD automation and cloud infrastructure to deliver high-availability systems.
+              I am a{" "}
+              <span className="text-indigo-400 font-bold text-lg">
+                Full Stack Developer
+              </span>{" "}
+              with over 1 year of experience engineering highly scalable{" "}
+              <span className="text-pink-400 font-bold">MERN</span> and{" "}
+              <span className="text-pink-400 font-bold">Java</span>{" "}
+              applications. Passionate about creating seamless user experiences
+              and robust architectures, I combine deep frontend knowledge with
+              strong <span className="text-purple-400 font-bold">DevOps</span>{" "}
+              capabilities, specializing in CI/CD automation and cloud
+              infrastructure to deliver high-availability systems.
             </p>
 
             {/* Quick Stats */}
@@ -83,19 +92,32 @@ const Hero = () => {
 
             {/* Social & Action Links */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-2 w-full">
-              <a href="https://github.com/deepanshu-sehgal01" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]">
+              <a
+                href="https://github.com/deepanshu-sehgal01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+              >
                 <Github size={20} className="text-white" />
               </a>
-              <a href="https://linkedin.com/in/Deepanshu-Sehgal" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]">
+              <a
+                href="https://linkedin.com/in/Deepanshu-Sehgal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+              >
                 <Linkedin size={20} className="text-white" />
               </a>
-              <a href="mailto:deepanshusehgal1506@gmail.com" className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]">
+              <a
+                href="mailto:deepanshusehgal1506@gmail.com"
+                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+              >
                 <Mail size={20} className="text-white" />
               </a>
-              
-              <a 
-                href="https://drive.google.com/file/d/1Phd6HqgNVNakR8jWfRfWuCFBIf97fN7K/view?usp=sharing" 
-                target="_blank" 
+
+              <a
+                href="https://drive.google.com/file/d/1zFMtFYLpwyIRxs_B-0qqgyRqjHJWaOSP/view?usp=sharing"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center bg-indigo-600/80 hover:bg-indigo-500 text-white font-medium  rounded-full px-6 py-2.5 border border-indigo-400/50 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]"
               >
@@ -121,10 +143,10 @@ const Hero = () => {
                 <AbstractShape />
               </Canvas>
             </div>
-            
+
             {/* Glowing ring behind image - Lighter version */}
             <div className="absolute inset-4 bg-gradient-to-r from-indigo-500/40 via-purple-500/40 to-pink-500/40 rounded-tl-xl rounded-tr-full rounded-br-full rounded-bl-full blur-lg opacity-40 group-hover:opacity-60 group-hover:blur-xl animate-pulse transition-all duration-700"></div>
-            
+
             <div className="relative z-10 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-[#111] border-2 border-white/20 rounded-tl-xl rounded-tr-full rounded-br-full rounded-bl-full flex items-center justify-center overflow-hidden shadow-2xl">
               <Image
                 src={profile}
@@ -135,7 +157,6 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
