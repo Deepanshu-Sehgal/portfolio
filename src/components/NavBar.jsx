@@ -23,23 +23,29 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav 
+    <nav
       className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${
-        scrolled ? "bg-[#0b0c10]/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3" : "bg-transparent py-5"
+        scrolled
+          ? "bg-[#0b0c10]/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="flex justify-between items-center px-6 md:px-10 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/">
           <div className="text-3xl font-extrabold tracking-tighter cursor-pointer group">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:to-white transition-all">D</span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500 group-hover:from-indigo-300 group-hover:to-purple-400 transition-all">S.</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:to-white transition-all">
+              D
+            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500 group-hover:from-indigo-300 group-hover:to-purple-400 transition-all">
+              S.
+            </span>
           </div>
         </Link>
 
         {/* Hamburger for mobile */}
         <div className="md:hidden z-50">
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white hover:text-indigo-400 transition-colors p-2 focus:outline-none"
           >
@@ -50,11 +56,21 @@ const NavBar = () => {
         {/* Desktop Nav Links */}
         <div className="hidden md:flex gap-8 items-center">
           <div className="flex gap-8 items-center">
-            <Link className="text-[17px] font-medium text-gray-200 hover:text-indigo-400 transition-colors" href="/">Home</Link>
-            
+            <Link
+              className="text-[17px] font-medium text-gray-200 hover:text-indigo-400 transition-colors"
+              href="/"
+            >
+              Home
+            </Link>
+
             {!isAboutPage && (
               <>
-                <Link className="text-[17px] font-medium text-gray-200 hover:text-indigo-400 transition-colors" href="/about">About</Link>
+                <Link
+                  className="text-[17px] font-medium text-gray-200 hover:text-indigo-400 transition-colors"
+                  href="/about"
+                >
+                  About
+                </Link>
                 <AnimatedLink defaultText="Experience" href="#experience" />
                 <AnimatedLink defaultText="Achievements" href="#achievements" />
                 <AnimatedLink defaultText="Projects" href="#projects" />
@@ -64,8 +80,8 @@ const NavBar = () => {
             )}
           </div>
 
-          <a 
-            href="https://drive.google.com/file/d/1Phd6HqgNVNakR8jWfRfWuCFBIf97fN7K/view?usp=sharing"
+          <a
+            href="https://drive.google.com/file/d/1zFMtFYLpwyIRxs_B-0qqgyRqjHJWaOSP/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-indigo-600/80 hover:bg-indigo-500 text-white font-medium rounded-full px-5 py-2 border border-indigo-400/50 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]"
@@ -78,7 +94,7 @@ const NavBar = () => {
       {/* Mobile Nav Links - Animated Slide Down */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20, height: 0 }}
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -20, height: 0 }}
@@ -86,21 +102,46 @@ const NavBar = () => {
             className="md:hidden absolute top-full left-0 w-full bg-[#0f111a]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden"
           >
             <div className="flex flex-col items-center gap-6 py-8 px-6">
-              <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium text-white hover:text-indigo-400">Home</Link>
-              
+              <Link
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-medium text-white hover:text-indigo-400"
+              >
+                Home
+              </Link>
+
               {!isAboutPage && (
                 <>
-                  <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg font-medium text-white hover:text-indigo-400">About</Link>
-                  <div onClick={() => setIsOpen(false)}><AnimatedLink defaultText="Experience" href="#experience" /></div>
-                  <div onClick={() => setIsOpen(false)}><AnimatedLink defaultText="Achievements" href="#achievements" /></div>
-                  <div onClick={() => setIsOpen(false)}><AnimatedLink defaultText="Projects" href="#projects" /></div>
-                  <div onClick={() => setIsOpen(false)}><AnimatedLink defaultText="Skills" href="#skills" /></div>
-                  <div onClick={() => setIsOpen(false)}><AnimatedLink defaultText="Contact" href="#contacts" /></div>
+                  <Link
+                    href="/about"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-white hover:text-indigo-400"
+                  >
+                    About
+                  </Link>
+                  <div onClick={() => setIsOpen(false)}>
+                    <AnimatedLink defaultText="Experience" href="#experience" />
+                  </div>
+                  <div onClick={() => setIsOpen(false)}>
+                    <AnimatedLink
+                      defaultText="Achievements"
+                      href="#achievements"
+                    />
+                  </div>
+                  <div onClick={() => setIsOpen(false)}>
+                    <AnimatedLink defaultText="Projects" href="#projects" />
+                  </div>
+                  <div onClick={() => setIsOpen(false)}>
+                    <AnimatedLink defaultText="Skills" href="#skills" />
+                  </div>
+                  <div onClick={() => setIsOpen(false)}>
+                    <AnimatedLink defaultText="Contact" href="#contacts" />
+                  </div>
                 </>
               )}
-              
-              <a 
-                href="https://drive.google.com/file/d/10Y8cus7tSlN5d3SRWvDBI7_bNbQc1iaY/view?usp=sharing"
+
+              <a
+                href="https://drive.google.com/file/d/1zFMtFYLpwyIRxs_B-0qqgyRqjHJWaOSP/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
