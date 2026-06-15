@@ -10,11 +10,14 @@ import Skills from "../components/Skills";
 import dynamic from "next/dynamic";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import TerminalLoader from "./TerminalLoader";
 
 const TerminalSection = dynamic(() => import("../components/TerminalSection"), { ssr: false });
 const KubernetesSimulator = dynamic(() => import("../components/KubernetesSimulator"), { ssr: false });
 const ContainerTetris = dynamic(() => import("../components/ContainerTetris"), { ssr: false });
+const PipelineBuilder = dynamic(() => import("../components/PipelineBuilder"), { ssr: false });
 
 const educationData = [
   {
@@ -83,26 +86,39 @@ const achievementData = [
 ];
 
 const Home = () => {
+  const [isBooting, setIsBooting] = useState(true);
+
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100,
-    });
-  }, []);
+    // Only init AOS after booting finishes
+    if (!isBooting) {
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+      // Refresh to ensure elements catch up
+      AOS.refresh();
+    }
+  }, [isBooting]);
 
   return (
     <div className="font-sans bg-transparent text-white relative select-none w-full relative">
+      <AnimatePresence>
+        {isBooting && <TerminalLoader onComplete={() => setIsBooting(false)} />}
+      </AnimatePresence>
+      
+      {/* The main content mounts and loads behind the terminal overlay, preventing stutter later */}
       <Hero />
       <TerminalSection />
       <KubernetesSimulator />
       <ContainerTetris />
+      <PipelineBuilder />
       <Experience data={experienceData} />
+      <Skills />
+      <Projects />
       <Education data={educationData} />
       <Achievements data={achievementData} />
       <FeaturedPosts />
-      <Projects />
-      <Skills />
     </div>
   );
 };

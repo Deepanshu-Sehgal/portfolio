@@ -1,75 +1,137 @@
-import React from "react";
-import { ArrowUpRight } from "lucide-react";
-import MagneticButton from "./MagneticButton";
-import AnimatedLink from "./AnimatedLink";
-import SocialLinks from "./SocialLinks";
+"use client";
 
-const links = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/deepanshu-sehgal01/" },
-  { label: "Github", href: "https://github.com/Deepanshu-Sehgal" },
-  { label: "Leetcode", href: "https://leetcode.com/u/DeepanshuSehgal112/" },
+import React, { useState } from "react";
+import { Terminal, Lock, Copy, CheckCircle2 } from "lucide-react";
+
+const openPorts = [
+  { port: 443, service: "HTTPS (LinkedIn)", href: "https://www.linkedin.com/in/deepanshu-sehgal01/", color: "text-blue-400" },
+  { port: 22, service: "SSH (GitHub)", href: "https://github.com/Deepanshu-Sehgal", color: "text-white" },
+  { port: 8080, service: "TCP (LeetCode)", href: "https://leetcode.com/u/DeepanshuSehgal112/", color: "text-yellow-500" },
 ];
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const emailCommand = "ssh deepanshu@sehgal.dev -p 22";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("deepanshusehgal1506@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section id="contacts" data-aos="fade-up" className="relative z-10 bg-transparent text-white py-24 px-4 sm:px-8 md:px-16 lg:px-24">
-      <div className="relative bg-gradient-to-br from-[#061e38]/90 to-black/90 backdrop-blur-xl border border-white/10 rounded-[2.5rem] mx-auto p-8 sm:p-14 lg:p-20 shadow-[0_20px_60px_rgba(20,184,166,0.2)] overflow-hidden">
+    <section id="contacts" className="relative z-10 w-full py-24 px-4 sm:px-8 md:px-16 max-w-5xl mx-auto overflow-hidden">
+      
+      {/* SSH Connection Terminal */}
+      <div className="bg-[#0b0c10] border border-white/10 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative overflow-hidden font-mono mt-10">
         
-        {/* Background Glowing Orbs */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-[80px] -z-10 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -z-10 pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
-
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 relative z-10">
-          
-          {/* Left Text */}
-          <div className="w-full lg:w-[45%] space-y-8 text-center lg:text-left">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 font-medium text-sm tracking-widest uppercase mb-2">
-              Get in touch
-            </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
-              Let{"'"}s start <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">
-                creating
-              </span> <br />
-              together.
-            </h2>
-            <div className="pt-4">
-              <MagneticButton
-                as="a"
-                href="mailto:deepanshusehgal1506@gmail.com"
-                className="inline-flex items-center gap-3 bg-teal-600 hover:bg-teal-500 text-white px-8 py-4 rounded-full text-lg font-medium shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:shadow-[0_0_30px_rgba(20,184,166,0.6)] hover:-translate-y-1 transition-all duration-300"
-              >
-                Start a conversation <ArrowUpRight size={22} />
-              </MagneticButton>
-            </div>
+        {/* Terminal Header */}
+        <div className="bg-[#1a1b26] px-5 py-3 border-b border-white/5 flex items-center gap-3 relative">
+          <div className="flex gap-2 z-10">
+            <div className="w-3.5 h-3.5 rounded-full bg-red-500/80"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/80"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-green-500/80"></div>
           </div>
-
-          {/* Right Nav + Socials */}
-          <div className="w-full lg:w-[50%] flex flex-col sm:flex-row justify-around lg:justify-end gap-16 text-center sm:text-left">
-            {/* Navigation */}
-            <div className="space-y-6">
-              <h3 className="text-gray-500 font-semibold tracking-widest uppercase text-sm mb-2">Navigation</h3>
-              <div className="space-y-4 flex flex-col items-center sm:items-start">
-                <AnimatedLink defaultText="Home" href="/" />
-                <AnimatedLink defaultText="About" href="/about" />
-                <AnimatedLink defaultText="Projects" href="/#projects" />
-              </div>
-            </div>
-
-            {/* Socials */}
-            <div className="space-y-6">
-              <h3 className="text-gray-500 font-semibold tracking-widest uppercase text-sm mb-2">Socials</h3>
-              <SocialLinks links={links} />
-            </div>
+          <div className="absolute inset-0 flex justify-center items-center gap-2 text-xs sm:text-sm text-gray-500 tracking-wider font-semibold pointer-events-none">
+            <Lock size={14} className="text-green-500/80" />
+            <span>root@secure-server: ~</span>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-500 text-sm font-medium">
-          <p>© {new Date().getFullYear()} Deepanshu Sehgal.</p>
-          <p className="flex items-center gap-1">
-            Engineered with <span className="text-red-500">❤️</span> & Coffee
-          </p>
+        {/* Terminal Body */}
+        <div className="p-6 sm:p-10 text-gray-300 space-y-10 relative">
+          
+          {/* Subtle background glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+          {/* Handshake Sequence */}
+          <div className="space-y-2 opacity-80 text-sm sm:text-base">
+            <p className="text-teal-400">Initiating secure handshake protocol...</p>
+            <p className="text-green-400">[OK] Connection established on port 443</p>
+            <p className="text-blue-400">[INFO] RSA key fingerprint recognized.</p>
+          </div>
+
+          <div className="py-4 border-l-[3px] border-teal-500/40 pl-5">
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-3 font-sans tracking-tight">
+              Ready to deploy your next project?
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base max-w-xl leading-relaxed">
+              I am actively looking for new opportunities to build scalable architectures and automate complex pipelines. My network ports are currently open for new connections.
+            </p>
+          </div>
+
+          {/* Interactive SSH Command */}
+          <div className="mt-8">
+            <div className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+              <Terminal size={14} /> Execute to connect
+            </div>
+            
+            <div className="group relative bg-[#111218] border border-white/10 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-teal-500/40 transition-colors shadow-inner">
+              
+              <div className="flex items-center gap-4 w-full">
+                <span className="text-teal-500 font-bold hidden sm:block">$</span>
+                <code className="text-teal-300 font-bold text-sm sm:text-lg tracking-wide w-full truncate">
+                  {emailCommand}
+                </code>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0">
+                <button 
+                  onClick={handleCopy}
+                  className="flex items-center justify-center p-2.5 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-lg transition-colors border border-white/10"
+                  title="Copy Email Address"
+                >
+                  {copied ? <CheckCircle2 size={20} className="text-green-500" /> : <Copy size={20} />}
+                </button>
+                
+                <a
+                  href="mailto:deepanshusehgal1506@gmail.com"
+                  className="flex items-center justify-center gap-2 px-6 py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-lg transition-all border border-teal-400/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.4)] w-full sm:w-auto"
+                >
+                  Connect
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Open Network Ports (Socials) */}
+          <div className="pt-8 mt-8 border-t border-white/5">
+             <div className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-5 flex items-center gap-2">
+               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div>
+               Available Network Ports
+             </div>
+             
+             <div className="flex flex-wrap gap-4">
+                {openPorts.map((port, idx) => (
+                  <a 
+                    key={idx}
+                    href={port.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 bg-black/40 border border-white/5 hover:border-white/20 hover:bg-white/5 px-4 py-2.5 rounded-lg transition-all group shadow-sm"
+                  >
+                    <span className="text-gray-500 text-xs font-bold w-14 text-right tracking-widest group-hover:text-gray-400 transition-colors">PORT {port.port}</span>
+                    <span className="w-[2px] h-4 bg-white/10 group-hover:bg-white/30 transition-colors"></span>
+                    <span className={`${port.color} text-sm font-bold tracking-wide`}>
+                      {port.service}
+                    </span>
+                  </a>
+                ))}
+             </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Footer System Logout */}
+      <div className="mt-20 text-center font-mono text-gray-500 text-xs sm:text-sm flex flex-col items-center gap-3">
+        <div className="opacity-60 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
+          System.exit(0) // Session Terminated Successfully.
+        </div>
+        <div className="flex items-center gap-3 opacity-40 font-sans tracking-wide mt-2">
+          <span>© {new Date().getFullYear()} Deepanshu Sehgal.</span>
+          <span>|</span>
+          <span>Deployed with <span className="text-red-500">❤️</span> & Coffee</span>
         </div>
       </div>
     </section>

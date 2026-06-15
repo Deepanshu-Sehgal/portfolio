@@ -13,6 +13,7 @@ const projects = [
     bgColor: "bg-[#1a1a2e]",
     github: "https://github.com/Deepanshu-Sehgal/DevOps-Project-Zomato",
     live: "",
+    image: "/projects/devops_pipeline.png",
     pipeline: [
       { name: "Clean WS", icon: "Trash2", color: "text-gray-400" },
       { name: "Git Checkout", icon: "GitBranch", color: "text-orange-400" },
@@ -63,6 +64,7 @@ const projects = [
     bgColor: "bg-[#0b1f38]",
     github: "",
     live: "",
+    image: "/projects/aws_3tier.png",
     pipeline: [
       { name: "VPC & Subnets", icon: "Network", color: "text-purple-400" },
       { name: "Security Groups", icon: "Shield", color: "text-rose-400" },
@@ -113,6 +115,7 @@ const projects = [
     bgColor: "bg-[#111B26]",
     github: "https://github.com/Deepanshu-Sehgal/StudyNotion-MERN-Mega_Project",
     live: "https://study-notion-ashy-zeta.vercel.app/",
+    image: "/projects/study_notion.png",
   },
   {
     title: "UberApp Clone: Cab Riding Backend System",

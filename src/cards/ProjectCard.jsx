@@ -1,160 +1,94 @@
 "use client";
 
-import React, { useRef } from "react";
-import { Github } from "lucide-react";
-import useIsMobile from "../hooks/useIsMobile";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import PipelineVisualizer from "../components/PipelineVisualizer";
+import React from "react";
+import { TerminalSquare, PlayCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import ImageSlider from "../components/ImageSlider";
 
-const ProjectCard = ({ project, index }) => {
-  const isMobile = useIsMobile();
-  const cardRef = useRef(null);
+// Generate a fake container ID
+const generateContainerId = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return (hash >>> 0).toString(16).padStart(12, '0').substring(0, 12);
+};
 
-  // Framer Motion 3D Tilt values
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-  const handleMouseMove = (e) => {
-    if (isMobile || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
+const ProjectCard = ({ project, index, onClick }) => {
+  const techList = project.tech.split(",").map(t => t.trim());
+  const displayTech = techList.slice(0, 4);
+  const containerId = generateContainerId(project.title);
 
   return (
-    <div
-      className="md:sticky md:top-8 flex items-center justify-center text-[#C3C3C3] px-4 sm:px-8 perspective-1000 mb-16 md:mb-0 md:min-h-screen"
-      style={{ zIndex: index + 10 }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      onClick={onClick}
+      className="cursor-pointer group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b0c10] shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-2 hover:border-indigo-500/50 hover:shadow-[0_15px_40px_rgba(79,70,229,0.25)] font-mono"
     >
-      <motion.div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX: isMobile ? 0 : rotateX,
-          rotateY: isMobile ? 0 : rotateY,
-          transformStyle: "preserve-3d",
-          backgroundColor: "rgba(15, 15, 25, 1)",
-          backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 100%)`,
-        }}
-        className="w-full h-auto md:min-h-[75vh] max-w-7xl md:h-[75vh] mt-4 md:mt-12 p-5 sm:p-8 md:p-10 rounded-2xl shadow-2xl border border-white/10 flex flex-col justify-between transition-colors duration-500 hover:border-white/30 overflow-hidden"
-      >
-        {/* Date & Tech */}
-        <div 
-          className="flex flex-col sm:flex-row justify-between gap-3 mb-5 items-start sm:items-center"
-          style={{ transform: "translateZ(30px)" }}
-        >
-          <p className="text-sm sm:text-lg md:text-xl text-gray-400 font-medium whitespace-nowrap">{project.date}</p>
-          <div className="flex flex-wrap gap-2 justify-start sm:justify-end">
-            {project.tech.split(",").map((tech, i) => (
-              <span key={i} className="text-xs sm:text-sm font-semibold px-2 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded-md shadow-[0_0_10px_rgba(79,70,229,0.1)]">
-                {tech.trim()}
+      {/* Container Dashboard Header */}
+      <div className="bg-[#1a1b26] p-3 sm:px-4 border-b border-white/5 flex flex-col gap-2 text-[10px] sm:text-xs">
+         <div className="flex justify-between items-center text-gray-500">
+           <span className="font-bold tracking-widest text-indigo-400">CONTAINER_ID</span>
+           <span className="text-white bg-white/5 px-2 py-0.5 rounded">{containerId}</span>
+         </div>
+         <div className="flex justify-between items-center text-gray-500">
+           <span className="font-bold tracking-widest text-indigo-400">STATUS</span>
+           <div className="flex items-center gap-1.5 bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
+             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.8)]"></div>
+             <span className="text-green-400 font-bold tracking-wide">Up {index + 2} days</span>
+           </div>
+         </div>
+      </div>
+
+      {/* Image Cover */}
+      <div className="h-48 sm:h-56 w-full overflow-hidden relative bg-black border-b border-white/5">
+        <ImageSlider images={project.image} altTitle={project.title} />
+        {/* Terminal Overlay effect on hover */}
+        <div className="absolute inset-0 bg-indigo-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-overlay"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="p-5 sm:p-6 flex flex-col flex-1 relative z-10">
+        
+        {/* Project Title as Image Name */}
+        <div className="flex items-center gap-2 mb-4">
+           <span className="text-gray-500 text-[10px] font-bold tracking-widest">IMAGE:</span>
+           <h3 className="text-lg font-bold text-white leading-tight truncate font-sans tracking-tight">
+             deepanshu/{project.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+           </h3>
+        </div>
+        
+        <p className="text-gray-400 text-sm line-clamp-3 mb-6 flex-1 leading-relaxed font-sans">
+          {project.desc1}
+        </p>
+
+        {/* Tech Stack Tags (ENV Variables) */}
+        <div className="mb-6 mt-auto">
+          <div className="text-[10px] text-gray-600 font-bold tracking-widest mb-2 border-b border-white/5 pb-1 inline-block">ENVIRONMENT_VARIABLES</div>
+          <div className="flex flex-wrap gap-2">
+            {displayTech.map((t, i) => (
+              <span key={i} className="text-[10px] sm:text-xs font-semibold px-2 py-1 bg-black text-indigo-300 border border-indigo-500/20 rounded flex items-center gap-1">
+                <span className="text-indigo-600 opacity-60">ENV=</span>{t}
               </span>
             ))}
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="w-full bg-gradient-to-r from-transparent via-white/20 to-transparent h-[1px] mb-6" />
-
-        {/* Title & Descriptions */}
-        <div className="flex-1" style={{ transform: "translateZ(40px)" }}>
-          <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-400">
-            {project.title}
+        {/* Action Button (Exec bash) */}
+        <div className="pt-4 border-t border-white/5 flex items-center justify-between group/btn bg-white/5 -mx-5 sm:-mx-6 -mb-5 sm:-mb-6 px-5 sm:px-6 pb-5 sm:pb-6 mt-4">
+          <div className="flex items-center gap-2 text-gray-500 text-[10px] sm:text-xs font-bold group-hover/btn:text-indigo-400 transition-colors pt-2">
+            <TerminalSquare size={14} />
+            <span className="truncate max-w-[200px]">docker exec -it {containerId.substring(0, 4)} /bin/sh</span>
           </div>
-
-          {/* 👉 Move buttons here if mobile */}
-          {isMobile && (
-            <div className="flex flex-wrap gap-3 mb-6">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 border border-white/20 flex items-center justify-center gap-2 hover:bg-white text-white hover:text-black px-4 py-2.5 rounded-lg shadow transition w-full sm:w-auto"
-              >
-                <Github size={20} /> GitHub
-              </a>
-              {project.live && (
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-indigo-600/80 border border-indigo-400/50 text-white flex items-center justify-center px-4 py-2.5 rounded-lg shadow hover:bg-indigo-500 transition w-full sm:w-auto"
-                >
-                  Live Demo
-                </a>
-              )}
-            </div>
-          )}
-
-          <div className="space-y-4">
-            {[project.desc1, project.desc2, project.desc3].map(
-              (desc, i) =>
-                desc && (
-                  <p
-                    key={i}
-                    className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-300"
-                  >
-                    {desc}
-                  </p>
-                )
-            )}
+          <div className="pt-2">
+            <PlayCircle size={20} className="text-indigo-500 group-hover/btn:scale-110 group-hover/btn:text-indigo-400 transition-all drop-shadow-[0_0_8px_rgba(99,102,241,0.5)] bg-black rounded-full" />
           </div>
-          
-          {/* Render Pipeline Visualizer if it exists */}
-          {project.pipeline && (
-            <PipelineVisualizer pipeline={project.pipeline} />
-          )}
         </div>
-
-        {/* Divider */}
-        {!isMobile && <div className="w-full bg-gradient-to-r from-transparent via-white/20 to-transparent h-[1px] mt-6 mb-4" />}
-
-        {/* 👉 Show buttons at bottom only on non-mobile */}
-        {!isMobile && (
-          <div 
-            className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center"
-            style={{ transform: "translateZ(50px)" }}
-          >
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white/10 border border-white/20 flex items-center gap-2 hover:bg-white text-white hover:text-black px-6 py-3 rounded-xl shadow-lg transition duration-300  font-medium"
-            >
-              <Github size={22} /> View Code
-            </a>
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-indigo-600/80 border border-indigo-400/50 text-white px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(79,70,229,0.5)] hover:shadow-[0_0_25px_rgba(79,70,229,0.7)] hover:bg-indigo-500 transition duration-300  font-medium"
-              >
-                Live Demo
-              </a>
-            )}
-          </div>
-        )}
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 
