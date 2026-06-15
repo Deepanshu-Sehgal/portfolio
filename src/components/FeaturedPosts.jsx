@@ -11,9 +11,9 @@ const iframeSrcs = [
 
 const FeaturedPosts = () => {
   return (
-    <section id="activity" data-aos="fade-up" className="w-full max-w-7xl mx-auto py-24 px-6 sm:px-10 z-10 relative">
+    <section id="featured-posts" data-aos="fade-up" className="w-full max-w-7xl mx-auto py-24 px-6 sm:px-10 z-10 relative">
       <div className="text-center mb-16">
-        <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 tracking-tight">
+        <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-500 tracking-tight">
           Recent Activity
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 p-4 rounded-xl border border-white/10">
@@ -26,7 +26,7 @@ const FeaturedPosts = () => {
         {iframeSrcs.map((src, index) => (
           <div 
             key={index} 
-            className="snap-center shrink-0 w-[320px] sm:w-[400px] h-[550px] bg-white rounded-2xl border border-white/10 overflow-hidden shadow-[0_10px_30px_rgba(79,70,229,0.15)] hover:shadow-[0_10px_40px_rgba(79,70,229,0.3)] transition-all duration-300"
+            className="snap-center shrink-0 w-[320px] sm:w-[400px] h-[550px] bg-white rounded-2xl border border-white/10 overflow-hidden shadow-[0_10px_30px_rgba(20,184,166,0.15)] hover:shadow-[0_10px_40px_rgba(20,184,166,0.3)] transition-all duration-300"
           >
             <iframe 
               src={src} 
@@ -34,6 +34,7 @@ const FeaturedPosts = () => {
               width="100%" 
               frameBorder="0" 
               allowFullScreen="" 
+              loading="lazy"
               title={`Embedded LinkedIn post ${index + 1}`}
               className="w-full h-full"
             ></iframe>

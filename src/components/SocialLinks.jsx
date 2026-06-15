@@ -11,7 +11,7 @@ const SocialLinks = ({links}) => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex justify-between gap-10 items-center w-full min-w-[150px] font-medium transition duration-300 ease-out hover:text-indigo-400"
+          className="group flex justify-between gap-10 items-center w-full min-w-[150px] font-medium transition duration-300 ease-out hover:text-teal-400"
         >
           {/* Label */}
           <span className="transition-opacity duration-300 ease-out group-hover:opacity-80">
@@ -19,7 +19,7 @@ const SocialLinks = ({links}) => {
           </span>
 
           {/* Icon Container */}
-          <span className="relative w-5 h-5 text-gray-400 group-hover:text-indigo-400 transition-colors">
+          <span className="relative w-5 h-5 text-gray-400 group-hover:text-teal-400 transition-colors">
             {/* Default Icon */}
             <ArrowUpRight
               className="absolute inset-0 transition-all duration-300 ease-out group-hover:opacity-0 group-hover:scale-50 group-hover:-translate-y-2 group-hover:translate-x-2"

@@ -37,7 +37,7 @@ const NavBar = () => {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:to-white transition-all">
               D
             </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500 group-hover:from-indigo-300 group-hover:to-purple-400 transition-all">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 group-hover:from-teal-300 group-hover:to-blue-400 transition-all">
               S.
             </span>
           </div>
@@ -47,7 +47,7 @@ const NavBar = () => {
         <div className="md:hidden z-50">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white hover:text-indigo-400 transition-colors p-2 focus:outline-none"
+            className="text-white hover:text-teal-400 transition-colors p-2 focus:outline-none"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -57,7 +57,7 @@ const NavBar = () => {
         <div className="hidden md:flex gap-8 items-center">
           <div className="flex gap-8 items-center">
             <Link
-              className="text-[17px] font-medium text-gray-200 hover:text-indigo-400 transition-colors"
+              className="text-[17px] font-medium text-gray-200 hover:text-teal-400 transition-colors"
               href="/"
             >
               Home
@@ -66,7 +66,7 @@ const NavBar = () => {
             {!isAboutPage && (
               <>
                 <Link
-                  className="text-[17px] font-medium text-gray-200 hover:text-indigo-400 transition-colors"
+                  className="text-[17px] font-medium text-gray-200 hover:text-teal-400 transition-colors"
                   href="/about"
                 >
                   About
@@ -84,7 +84,7 @@ const NavBar = () => {
             href="https://drive.google.com/file/d/1zFMtFYLpwyIRxs_B-0qqgyRqjHJWaOSP/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-indigo-600/80 hover:bg-indigo-500 text-white font-medium rounded-full px-5 py-2 border border-indigo-400/50 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]"
+            className="flex items-center gap-2 bg-teal-600/80 hover:bg-teal-500 text-white font-medium rounded-full px-5 py-2 border border-teal-400/50 shadow-[0_0_15px_rgba(20,184,166,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(20,184,166,0.5)]"
           >
             <Download size={16} /> CV
           </a>
@@ -105,7 +105,7 @@ const NavBar = () => {
               <Link
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-medium text-white hover:text-indigo-400"
+                className="text-lg font-medium text-white hover:text-teal-400"
               >
                 Home
               </Link>
@@ -115,7 +115,7 @@ const NavBar = () => {
                   <Link
                     href="/about"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white hover:text-indigo-400"
+                    className="text-lg font-medium text-white hover:text-teal-400"
                   >
                     About
                   </Link>
@@ -145,7 +145,7 @@ const NavBar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 flex items-center gap-2 bg-indigo-600/80 hover:bg-indigo-500 text-white font-medium rounded-full px-8 py-3 border border-indigo-400/50 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all"
+                className="mt-2 flex items-center gap-2 bg-teal-600/80 hover:bg-teal-500 text-white font-medium rounded-full px-8 py-3 border border-teal-400/50 shadow-[0_0_15px_rgba(20,184,166,0.3)] transition-all"
               >
                 <Download size={18} /> Download CV
               </a>

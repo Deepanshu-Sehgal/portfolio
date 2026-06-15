@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Hero from "../components/Hero";
 import Education from "../components/Education";
 import Achievements from "../components/Achievements";
@@ -8,10 +7,14 @@ import FeaturedPosts from "../components/FeaturedPosts";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import Contact from "../components/Contact";
+import dynamic from "next/dynamic";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+
+const TerminalSection = dynamic(() => import("../components/TerminalSection"), { ssr: false });
+const KubernetesSimulator = dynamic(() => import("../components/KubernetesSimulator"), { ssr: false });
+const ContainerTetris = dynamic(() => import("../components/ContainerTetris"), { ssr: false });
 
 const educationData = [
   {
@@ -63,19 +66,19 @@ const achievementData = [
   {
     title: "DevOps | AWS | Docker | Kubernetes (K8s) Certifications",
     subtitle: "2026",
-    link: "https://drive.google.com/drive/folders/102lWXZaTnScb9QsC3ykD1kshiXvyGzCz?usp=sharing", // Add your certification link here
+    link: "https://drive.google.com/drive/folders/102lWXZaTnScb9QsC3ykD1kshiXvyGzCz?usp=sharing",
   },
   {
     title:
       "Authored a book chapter on AI-Driven Personalized Shopping Assistance, published at ICISRI 2024",
     subtitle: "2024",
-    link: "https://www.linkedin.com/posts/deepanshu-sehgal01_ai-machinelearning-iot-activity-7274402555860819968-uDJY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADLTVGUBMUAQfMSRQndJXVE18K-_0BF2PKY", // Add your publication link here
+    link: "https://www.linkedin.com/posts/deepanshu-sehgal01_ai-machinelearning-iot-activity-7274402555860819968-uDJY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADLTVGUBMUAQfMSRQndJXVE18K-_0BF2PKY",
   },
   {
     title:
       "Finalist at CyberThon 2023 (Top 13) – NLP-based police complaint automation (FastAPI + Twilio)",
     subtitle: "November 2023",
-    link: "", // Add your hackathon link here
+    link: "",
   },
 ];
 
@@ -87,21 +90,20 @@ const Home = () => {
       offset: 100,
     });
   }, []);
+
   return (
-    <motion.div
-      className="font-sans bg-transparent min-h-screen text-white relative select-none"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <div className="font-sans bg-transparent text-white relative select-none w-full relative">
       <Hero />
+      <TerminalSection />
+      <KubernetesSimulator />
+      <ContainerTetris />
       <Experience data={experienceData} />
       <Education data={educationData} />
       <Achievements data={achievementData} />
       <FeaturedPosts />
       <Projects />
       <Skills />
-    </motion.div>
+    </div>
   );
 };
 

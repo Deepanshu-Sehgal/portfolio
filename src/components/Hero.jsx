@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import MagneticButton from "./MagneticButton";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { TorusKnot, Float, MeshDistortMaterial } from "@react-three/drei";
 import { MapPin, Briefcase, Code, Github, Linkedin, Mail } from "lucide-react";
@@ -51,8 +52,8 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 w-full"
         >
-          <div className="space-y-2">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-300 to-indigo-600 drop-shadow-lg leading-tight tracking-tight">
+          <div className="text-center lg:text-left space-y-6">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-300 to-blue-600 drop-shadow-lg leading-tight tracking-tight">
               Deepanshu
             </h1>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-white to-gray-500 leading-tight tracking-tight">
@@ -62,31 +63,27 @@ const Hero = () => {
 
           <div className="flex flex-col items-center lg:items-start gap-6 w-full max-w-lg">
             {/* Description */}
-            <p className="text-sm sm:text-base lg:text-lg tracking-wide  bg-[#1a1b2e]/80 p-5 lg:p-6 rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(79,70,229,0.15)] text-gray-300 leading-relaxed w-full">
+            <h2 className="sr-only">About Deepanshu Sehgal - DevOps & Full Stack Developer</h2>
+            <p className="text-sm sm:text-base lg:text-lg tracking-wide  bg-[#1a1b2e]/80 p-5 lg:p-6 rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(20,184,166,0.15)] text-gray-300 leading-relaxed w-full">
               I am a{" "}
-              <span className="text-indigo-400 font-bold text-lg">
-                Full Stack Developer
-              </span>{" "}
-              with over 1 year of experience engineering highly scalable{" "}
-              <span className="text-pink-400 font-bold">MERN</span> and{" "}
-              <span className="text-pink-400 font-bold">Java</span>{" "}
-              applications. Passionate about creating seamless user experiences
-              and robust architectures, I combine deep frontend knowledge with
-              strong <span className="text-purple-400 font-bold">DevOps</span>{" "}
-              capabilities, specializing in CI/CD automation and cloud
-              infrastructure to deliver high-availability systems.
+              <strong className="text-teal-400 font-bold text-lg">
+                DevOps Engineer & Full Stack Developer
+              </strong>{" "}
+              specializing in robust cloud architectures, <strong className="text-teal-400 font-bold">CI/CD automation</strong>, and Infrastructure as Code (IaC). With expertise building highly scalable applications using the{" "}
+              <strong className="text-blue-400 font-bold">MERN stack (MongoDB, Express, React, Node.js)</strong>{" "}
+              and <strong className="text-blue-400 font-bold">Java</strong>, I seamlessly bridge software engineering with IT operations. My core focus is on containerization, deployment pipelines, and cloud infrastructure to deliver high-availability, zero-downtime systems.
             </p>
 
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 w-full">
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1a1b2e]/80 border border-white/10 rounded-full text-xs sm:text-sm text-gray-300  shadow-sm">
-                <MapPin size={14} className="text-indigo-400" /> Mohali, Punjab
+                <MapPin size={14} className="text-teal-400" /> Mohali, Punjab
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1a1b2e]/80 border border-white/10 rounded-full text-xs sm:text-sm text-gray-300  shadow-sm">
-                <Briefcase size={14} className="text-pink-400" /> 1+ Years Exp
+                <Briefcase size={14} className="text-blue-400" /> 1+ Years Exp
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1a1b2e]/80 border border-white/10 rounded-full text-xs sm:text-sm text-gray-300  shadow-sm">
-                <Code size={14} className="text-purple-400" /> 8+ Projects
+                <Code size={14} className="text-teal-400" /> 8+ Projects
               </div>
             </div>
 
@@ -96,7 +93,7 @@ const Hero = () => {
                 href="https://github.com/deepanshu-sehgal01"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(45,212,191,0.3)]"
               >
                 <Github size={20} className="text-white" />
               </a>
@@ -104,25 +101,26 @@ const Hero = () => {
                 href="https://linkedin.com/in/Deepanshu-Sehgal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(45,212,191,0.3)]"
               >
                 <Linkedin size={20} className="text-white" />
               </a>
               <a
                 href="mailto:deepanshusehgal1506@gmail.com"
-                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+                className="p-3 bg-[#1a1b2e]/80 hover:bg-white/15 border border-white/10 rounded-full transition-all hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(45,212,191,0.3)]"
               >
                 <Mail size={20} className="text-white" />
               </a>
 
-              <a
+              <MagneticButton
+                as="a"
                 href="https://drive.google.com/file/d/1zFMtFYLpwyIRxs_B-0qqgyRqjHJWaOSP/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center bg-indigo-600/80 hover:bg-indigo-500 text-white font-medium  rounded-full px-6 py-2.5 border border-indigo-400/50 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]"
+                className="flex items-center justify-center bg-teal-600/80 hover:bg-teal-500 text-white font-medium  rounded-full px-6 py-2.5 border border-teal-400/50 shadow-[0_0_15px_rgba(45,212,191,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(45,212,191,0.5)]"
               >
                 Download CV
-              </a>
+              </MagneticButton>
             </div>
           </div>
         </motion.div>
@@ -144,8 +142,8 @@ const Hero = () => {
               </Canvas>
             </div>
 
-            {/* Glowing ring behind image - Lighter version */}
-            <div className="absolute inset-4 bg-gradient-to-r from-indigo-500/40 via-purple-500/40 to-pink-500/40 rounded-tl-xl rounded-tr-full rounded-br-full rounded-bl-full blur-lg opacity-40 group-hover:opacity-60 group-hover:blur-xl animate-pulse transition-all duration-700"></div>
+            {/* Glowing Effects */}
+            <div className="absolute inset-4 bg-gradient-to-r from-teal-500/40 via-cyan-500/40 to-blue-500/40 rounded-tl-xl rounded-tr-full rounded-br-full rounded-bl-full blur-lg opacity-40 group-hover:opacity-60 group-hover:blur-xl animate-pulse transition-all duration-700"></div>
 
             <div className="relative z-10 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-[#111] border-2 border-white/20 rounded-tl-xl rounded-tr-full rounded-br-full rounded-bl-full flex items-center justify-center overflow-hidden shadow-2xl">
               <Image

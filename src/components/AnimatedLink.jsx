@@ -17,7 +17,7 @@ const AnimatedLink = ({ defaultText, href = "#" }) => {
         <span className="transition-all duration-300 ease-in group-hover:-translate-y-7 group-hover:opacity-0 text-gray-200">
           {defaultText}
         </span>
-        <span className="text-indigo-400 opacity-0 transition-all duration-300 ease-out group-hover:-translate-y-7 group-hover:opacity-100">
+        <span className="text-teal-400 opacity-0 transition-all duration-300 ease-out group-hover:-translate-y-7 group-hover:opacity-100">
           {defaultText}
         </span>
       </a>
@@ -32,7 +32,7 @@ const AnimatedLink = ({ defaultText, href = "#" }) => {
       <span className="transition-all duration-300 ease-in group-hover:-translate-y-7 group-hover:opacity-0 text-gray-200">
         {defaultText}
       </span>
-      <span className="text-indigo-400 opacity-0 transition-all duration-300 ease-out group-hover:-translate-y-7 group-hover:opacity-100">
+      <span className="text-teal-400 opacity-0 transition-all duration-300 ease-out group-hover:-translate-y-7 group-hover:opacity-100">
         {defaultText}
       </span>
     </Link>

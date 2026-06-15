@@ -13,6 +13,64 @@ const projects = [
     bgColor: "bg-[#1a1a2e]",
     github: "https://github.com/Deepanshu-Sehgal/DevOps-Project-Zomato",
     live: "",
+    pipeline: [
+      { name: "Clean WS", icon: "Trash2", color: "text-gray-400" },
+      { name: "Git Checkout", icon: "GitBranch", color: "text-orange-400" },
+      { name: "SonarQube", icon: "CheckCircle", color: "text-blue-400" },
+      { name: "Quality Gate", icon: "ShieldCheck", color: "text-green-400" },
+      { name: "NPM Install", icon: "Package", color: "text-red-400" },
+      { name: "OWASP Scan", icon: "ShieldAlert", color: "text-rose-500" },
+      { name: "Trivy Scan", icon: "Search", color: "text-teal-400" },
+      { name: "Docker Build", icon: "Box", color: "text-blue-500" },
+      { name: "Push to Registry", icon: "UploadCloud", color: "text-sky-400" },
+      { name: "Docker Scout", icon: "Radar", color: "text-indigo-400" },
+      { name: "Deploy Container", icon: "Server", color: "text-emerald-400" }
+    ]
+  },
+  {
+    title: "DevOps CI/CD Pipeline for Online Ticketing Platform",
+    tech: "Jenkins, Docker, Kubernetes (EKS), Ansible, AWS (EKS, ECR), Prometheus, Grafana",
+    date: "Aug 2025",
+    desc1:
+      "🚀 Migrated a monolithic movie ticketing application into a scalable microservices architecture and developed automated CI/CD pipelines using Jenkins.",
+    desc2:
+      "⚙️ Containerized services using Docker and orchestrated deployments on Kubernetes (AWS EKS), automating infrastructure configuration with Ansible.",
+    desc3:
+      "📊 Implemented monitoring and alerting with Prometheus and Grafana, and configured deployment rollback mechanisms to minimize downtime.",
+    bgColor: "bg-[#2b0c16]",
+    github: "",
+    live: "",
+    pipeline: [
+      { name: "Git Checkout", icon: "GitBranch", color: "text-orange-400" },
+      { name: "Jenkins Build", icon: "Package", color: "text-blue-400" },
+      { name: "Docker Build", icon: "Box", color: "text-blue-500" },
+      { name: "Push to ECR", icon: "UploadCloud", color: "text-sky-400" },
+      { name: "Ansible Provision", icon: "TerminalSquare", color: "text-indigo-400" },
+      { name: "Deploy to EKS", icon: "Server", color: "text-emerald-400" },
+      { name: "Grafana Verify", icon: "Activity", color: "text-rose-400" }
+    ]
+  },
+  {
+    title: "AWS 3-Tier Web Application Deployment",
+    tech: "AWS S3, EC2, RDS (MySQL), VPC, IAM, Route 53, Security Groups",
+    date: "July 2025",
+    desc1:
+      "☁️ Designed and deployed a secure 3-tier architecture consisting of frontend, backend, and database layers on AWS, ensuring high availability.",
+    desc2:
+      "🔒 Configured VPC networking with public and private subnets, established Security Groups, and implemented IAM roles for secure resource access.",
+    desc3:
+      "🗄️ Deployed backend services on EC2, managed databases with RDS MySQL, and configured Route 53 for reliable domain management.",
+    bgColor: "bg-[#0b1f38]",
+    github: "",
+    live: "",
+    pipeline: [
+      { name: "VPC & Subnets", icon: "Network", color: "text-purple-400" },
+      { name: "Security Groups", icon: "Shield", color: "text-rose-400" },
+      { name: "RDS Provision", icon: "Database", color: "text-blue-400" },
+      { name: "EC2 Backend", icon: "Server", color: "text-orange-400" },
+      { name: "S3 Frontend", icon: "Cloud", color: "text-sky-400" },
+      { name: "Route 53 DNS", icon: "Globe", color: "text-indigo-400" }
+    ]
   },
   {
     title: "AI Return Assistant (GenAI + FastAPI)",

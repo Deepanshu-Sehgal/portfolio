@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { Github } from "lucide-react";
 import useIsMobile from "../hooks/useIsMobile";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import PipelineVisualizer from "../components/PipelineVisualizer";
 
 const ProjectCard = ({ project, index }) => {
   const isMobile = useIsMobile();
@@ -116,6 +117,11 @@ const ProjectCard = ({ project, index }) => {
                 )
             )}
           </div>
+          
+          {/* Render Pipeline Visualizer if it exists */}
+          {project.pipeline && (
+            <PipelineVisualizer pipeline={project.pipeline} />
+          )}
         </div>
 
         {/* Divider */}

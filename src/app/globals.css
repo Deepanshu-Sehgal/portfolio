@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --theme-filter: none;
+  --theme-inverse-filter: none;
+}
+
+html {
+  filter: var(--theme-filter);
+  transition: filter 0.5s ease;
+}
+
+img, iframe, video {
+  filter: var(--theme-inverse-filter) !important;
+  transition: filter 0.5s ease;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -60,5 +75,21 @@ html {
 
 
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
 
+/* Custom Cursor Base - Only on desktop */
+@media (pointer: fine) {
+  body, a, button, [role="button"] {
+    cursor: none !important;
+  }
+}
